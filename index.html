@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сто тисяч — Іван Карпенко-Карий</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #eeeeee;
+            font-family: Arial, sans-serif;
+            color: #252525;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #101d43;
+            color: white;
+            min-height: 115px;
+            padding: 20px 30px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid #20c77b;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        header p {
+            color: #cbd5ee;
+            font-size: 13px;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav {
+            position: relative;
+            z-index: 2;
+            margin-top: 12px;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #20d58a;
+        }
+
+        /* DECORATIVE HEADER ELEMENTS */
+
+        header::before {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 1px solid #b49b42;
+            border-radius: 50%;
+            right: 40px;
+            top: -90px;
+            opacity: 0.7;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            border: 1px solid #d5b447;
+            border-radius: 50%;
+            right: 110px;
+            bottom: -45px;
+        }
+
+        /* MAIN LAYOUT */
+
+        .page {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            background: white;
+            min-height: 100vh;
+        }
+
+        /* AUTHOR SIDEBAR */
+
+        aside {
+            width: 245px;
+            flex-shrink: 0;
+            background: #20c77b;
+            color: #102d25;
+            padding-bottom: 25px;
+        }
+
+        aside img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .author-info {
+            padding: 20px;
+        }
+
+        .author-info h2 {
+            font-size: 23px;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .real-name {
+            font-size: 12px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .author-info h3 {
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .author-info p {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .author-info ul {
+            padding-left: 17px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .author-info a {
+            color: #103c2b;
+        }
+
+        /* MAIN CONTENT */
+
+        main {
+            flex: 1;
+            min-width: 0;
+            padding: 30px 35px;
+        }
+
+        section {
+            margin-bottom: 25px;
+            scroll-margin-top: 20px;
+        }
+
+        main h2 {
+            color: #18bc70;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        main h3 {
+            color: #142b50;
+            font-size: 15px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        main p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* HEROES */
+
+        .heroes-list {
+            padding-left: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            border-left: 3px solid #e4bd43;
+            padding: 10px 15px;
+            background: #fafafa;
+            font-size: 13px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .quote-author {
+            text-align: right;
+            margin-top: 8px;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* PROBLEMS */
+
+        .problems-list {
+            padding-left: 20px;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* BUTTON */
+
+        .theme-button {
+            background: #101d43;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .theme-button:hover {
+            background: #20a86e;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #101d43;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* DARK MODE */
+
+        body.dark {
+            background: #171b25;
+            color: #eeeeee;
+        }
+
+        body.dark .page {
+            background: #222938;
+        }
+
+        body.dark main {
+            color: #eeeeee;
+        }
+
+        body.dark main p,
+        body.dark .heroes-list,
+        body.dark .problems-list {
+            color: #eeeeee;
+        }
+
+        body.dark main h3 {
+            color: #a9c4ff;
+        }
+
+        body.dark .quote {
+            background: #30394b;
+            color: white;
+        }
+
+        /* MOBILE VERSION */
+
+        @media (max-width: 700px) {
+
+            .page {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+            }
+
+            aside img {
+                height: 300px;
+                object-fit: contain;
+                background: #20c77b;
+            }
+
+            .author-info {
+                text-align: center;
+            }
+
+            .author-info ul {
+                display: inline-block;
+                text-align: left;
+            }
+
+            main {
+                padding: 25px 20px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>Сто тисяч</h1>
+    <p>Іван Карпенко-Карий</p>
+
+    <nav>
+        <ul>
+            <li><a href="#author">Автор</a></li>
+            <li><a href="#heroes">Герої</a></li>
+            <li><a href="#plot">Сюжет</a></li>
+            <li><a href="#quote">Цитата</a></li>
+            <li><a href="#problems">Проблематика</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<div class="page">
+
+    <!-- AUTHOR SIDEBAR -->
+
+    <aside id="author">
+
+        <img src="images/karpenko-kary.jpg"
+             alt="Іван Карпенко-Карий">
+
+        <div class="author-info">
+
+            <h2>Іван Карпенко-Карий</h2>
+
+            <p class="real-name">
+                Справжнє ім'я — Іван Тобілевич
+            </p>
+
+            <h3>Роки життя</h3>
+
+            <p>1845 — 1907</p>
+
+            <h3>Про автора</h3>
+
+            <p>
+                Український драматург, актор і театральний діяч,
+                один із найвидатніших представників українського
+                театру. Його творчість присвячена суспільству,
+                людським цінностям та моралі.
+            </p>
+
+            <h3>Інші твори</h3>
+
+            <ul>
+                <li>«Мартин Боруля»</li>
+                <li>«Хазяїн»</li>
+                <li>«Сава Чалий»</li>
+                <li>«Наймичка»</li>
+            </ul>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+        <!-- YEAR -->
+
+        <section id="work-year">
+
+            <h2>Рік написання</h2>
+
+            <p>1889</p>
+
+        </section>
+
+
+        <!-- HEROES -->
+
+        <section id="heroes">
+
+            <h2>Герої твору</h2>
+
+            <ul class="heroes-list">
+
+                <li>Герасим Калитка — заможний багатий селянин,
+                    ненаситний у бажанні придбати якомога більше землі.</li>
+
+                <li>Параска — його дружина.</li>
+
+                <li>Роман — син Калитки.</li>
+
+                <li>Савка — сусід Калитки.</li>
+
+                <li>Бонавентура — копач, помічник Калитки.</li>
+
+                <li>Невідомий — шахрай, продавець фальшивих грошей.</li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- PLOT -->
+
+        <section id="plot">
+
+            <h2>Сюжет</h2>
+
+            <h3>Експозиція</h3>
+
+            <p>
+                Селянин Герасим Калитка мріє скуповувати землю
+                і стати найбагатшим господарем у селі.
+                Він прагне збільшити свої земельні володіння,
+                бо вважає землю головною цінністю.
+            </p>
+
+            <h3>Зав'язка</h3>
+
+            <p>
+                Калитці товариш радить звернутися до проїжджого
+                Бонавентури, який розповідає йому про таємний
+                грошовий обмін. Калитка вирішує придбати
+                фальшиві гроші за значно нижчою ціною.
+            </p>
+
+            <h3>Розвиток дії</h3>
+
+            <p>
+                Герасим бере в борг потрібну суму, вирушає
+                на угоду до міста. Отримавши згорток з грошима,
+                повертається додому у великій радості.
+                Він переконаний, що тепер зможе придбати ще
+                більше землі.
+            </p>
+
+            <h3>Кульмінація</h3>
+
+            <p>
+                Саме тоді, коли Калитка розгортає згорток,
+                він бачить замість справжніх грошей звичайний
+                папір. Його обдурили. Це стає початком
+                морального потрясіння героя.
+            </p>
+
+            <h3>Розв'язка</h3>
+
+            <p>
+                У шаленому відчаї Калитка намагається
+                покінчити з життям, але його рятують.
+                Він усвідомлює, що став жертвою власної
+                жадібності та прагнення до швидкого збагачення.
+            </p>
+
+        </section>
+
+
+        <!-- QUOTE -->
+
+        <section id="quote">
+
+            <h2>Цитата</h2>
+
+            <div class="quote">
+
+                Глянеш оком навколо — усе твоє:
+                там череда пасеться, там орють на пар,
+                а тут зазеленіла вже пшениця і колосується
+                жито! Легко по своїй власній землі ходить.
+
+                <p class="quote-author">
+                    Калитка
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROBLEMS -->
+
+        <section id="problems">
+
+            <h2>Проблематика</h2>
+
+            <ul class="problems-list">
+
+                <li>Руйнівний вплив жадоби до збагачення,
+                    що призводить до моральної деградації людини.</li>
+
+                <li>Засудження шахрайства та нечесного збагачення.</li>
+
+                <li>Протистояння матеріальних і духовних цінностей.</li>
+
+                <li>Вплив грошей на людські стосунки.</li>
+
+                <li>Висміювання прагнення до легкого багатства.</li>
+
+            </ul>
+
+        </section>
+
+
+        <button class="theme-button" onclick="changeTheme()">
+            Змінити оформлення
+        </button>
+
+    </main>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 | Навчальний проєкт</p>
+
+    <p>Виконав: [Томар Рошан]</p>
+
+    <p>Навчальний заклад: [Хл 169]</p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    function changeTheme() {
+
+        document.body.classList.toggle("dark");
+
+    }
+
+</script>
+
+</body>
+</html>
